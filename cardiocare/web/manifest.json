@@ -1,6 +1,6 @@
 {
-    "name": "cardiocare",
-    "short_name": "cardiocare",
+    "name": "flutter_aplicacao1",
+    "short_name": "flutter_aplicacao1",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
