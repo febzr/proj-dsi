@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -12,50 +14,52 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: '/',
       routes: {
-        '/': (context) => LoginPage(),
-        '/cadastro': (context) => CadastroPage(),
+        '/': (context) => const LoginPage(),
+        '/cadastro': (context) => const CadastroPage(),
       },
     );
   }
 }
 
 class LoginPage extends StatelessWidget {
+  const LoginPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Login'),
+        title: const Text('Login'),
       ),
       body: Padding(
-        padding: EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            TextField(
+            const TextField(
               decoration: InputDecoration(
                 labelText: 'Usuário',
               ),
             ),
-            SizedBox(height: 20.0),
-            TextField(
+            const SizedBox(height: 20.0),
+            const TextField(
               decoration: InputDecoration(
                 labelText: 'Senha',
               ),
               obscureText: true,
             ),
-            SizedBox(height: 20.0),
+            const SizedBox(height: 20.0),
             ElevatedButton(
               onPressed: () {
                 // Implementar a lógica de autenticação aqui
               },
-              child: Text('Entrar'),
+              child: const Text('Entrar'),
             ),
-            SizedBox(height: 20.0),
+            const SizedBox(height: 20.0),
             TextButton(
               onPressed: () {
                 Navigator.pushNamed(context, '/cadastro');
               },
-              child: Text('Cadastrar'),
+              child: const Text('Cadastrar'),
             ),
           ],
         ),
@@ -65,54 +69,56 @@ class LoginPage extends StatelessWidget {
 }
 
 class CadastroPage extends StatelessWidget {
+  const CadastroPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Cadastro'),
+        title: const Text('Cadastro'),
       ),
       body: Padding(
-        padding: EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            TextField(
+            const TextField(
               decoration: InputDecoration(
                 labelText: 'Nome',
               ),
             ),
-            SizedBox(height: 20.0),
-            TextField(
+            const SizedBox(height: 20.0),
+            const TextField(
               decoration: InputDecoration(
                 labelText: 'Email',
               ),
             ),
-            SizedBox(height: 20.0),
-            TextField(
+            const SizedBox(height: 20.0),
+            const TextField(
               decoration: InputDecoration(
                 labelText: 'Telefone',
               ),
             ),
-            SizedBox(height: 20.0),
-            TextField(
+            const SizedBox(height: 20.0),
+            const TextField(
               decoration: InputDecoration(
                 labelText: 'Senha',
               ),
               obscureText: true,
             ),
-            SizedBox(height: 20.0),
+            const SizedBox(height: 20.0),
             ElevatedButton(
               onPressed: () {
                 // Implementar a lógica de cadastro aqui
               },
-              child: Text('Cadastrar'),
+              child: const Text('Cadastrar'),
             ),
-            SizedBox(height: 20.0),
+            const SizedBox(height: 20.0),
             TextButton(
               onPressed: () {
                 Navigator.pop(context);
               },
-              child: Text('Voltar'),
+              child: const Text('Voltar'),
             ),
           ],
         ),
