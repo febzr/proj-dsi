@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'home.dart';
 
@@ -128,6 +130,12 @@ class LoginPage extends StatelessWidget {
                     );
                   }
                 },
+                style: ButtonStyle(
+                  backgroundColor:
+                      MaterialStateProperty.all<Color>(const Color(0xFFDF4343)),
+                  foregroundColor:
+                      MaterialStateProperty.all<Color>(Colors.white),
+                ),
                 child: const Text('Entrar'),
               ),
               const SizedBox(height: 20.0),
@@ -135,8 +143,18 @@ class LoginPage extends StatelessWidget {
                 onPressed: () {
                   Navigator.pushNamed(context, '/cadastro');
                 },
+                style: ButtonStyle(
+                  backgroundColor:
+                      MaterialStateProperty.all<Color>(const Color(0xFFDF4343)),
+                  foregroundColor:
+                      MaterialStateProperty.all<Color>(Colors.white),
+                ),
                 child: const Text('Cadastrar'),
               ),
+              const SizedBox(height: 20.0),
+              // Logo no final da tela
+              Positioned(
+                  bottom: 0, left: 0, right: 0, child: Text('CardioCare')),
             ],
           ),
         ),
@@ -152,8 +170,8 @@ class CadastroPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title:
-            const Text('CADASTRO', style: TextStyle(color: Color(0xFFF13232))),
+        title: const Text('CADASTRO',
+            style: TextStyle(color: Color.fromARGB(255, 0, 0, 0))),
         centerTitle: true,
         bottom: const PreferredSize(
           preferredSize: Size.fromHeight(40),
@@ -162,7 +180,7 @@ class CadastroPage extends StatelessWidget {
             child: Text(
               'Preencha os campos abaixo para se cadastrar.',
               textAlign: TextAlign.center,
-              style: TextStyle(color: Color(0xFFF13232)),
+              style: TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
             ),
           ),
         ),
@@ -269,6 +287,8 @@ class CadastroPage extends StatelessWidget {
                 style: ButtonStyle(
                   backgroundColor:
                       MaterialStateProperty.all<Color>(const Color(0xFFDF4343)),
+                  foregroundColor:
+                      MaterialStateProperty.all<Color>(Colors.white),
                 ),
                 child: const Text('Cadastrar'),
               ),
@@ -277,8 +297,18 @@ class CadastroPage extends StatelessWidget {
                 onPressed: () {
                   Navigator.pop(context);
                 },
+                style: ButtonStyle(
+                  backgroundColor:
+                      MaterialStateProperty.all<Color>(const Color(0xFFDF4343)),
+                  foregroundColor:
+                      MaterialStateProperty.all<Color>(Colors.white),
+                ),
                 child: const Text('Voltar'),
               ),
+              const SizedBox(height: 20.0),
+              // Logo no final da tela
+              Positioned(
+                  bottom: 0, left: 0, right: 0, child: Text('CardioCare')),
             ],
           ),
         ),
