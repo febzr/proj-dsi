@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
 import 'home.dart';
 
@@ -268,6 +266,10 @@ class CadastroPage extends StatelessWidget {
                 onPressed: () {
                   // Implementar a lógica de cadastro aqui
                 },
+                style: ButtonStyle(
+                  backgroundColor:
+                      MaterialStateProperty.all<Color>(const Color(0xFFDF4343)),
+                ),
                 child: const Text('Cadastrar'),
               ),
               const SizedBox(height: 20.0),
