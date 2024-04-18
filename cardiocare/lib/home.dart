@@ -7,9 +7,8 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Home',
-            textAlign: TextAlign.center,
-            style: TextStyle(color: Color(0xFFF13232))),
+        title: const Text('HOME', style: TextStyle(color: Color(0xFFF13232))),
+        centerTitle: true,
         bottom: const PreferredSize(
           preferredSize: Size.fromHeight(40),
           child: Padding(

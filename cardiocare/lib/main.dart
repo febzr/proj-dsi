@@ -38,9 +38,9 @@ class LoginPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('LOGIN',
-            textAlign: TextAlign.center,
-            style: TextStyle(color: Color(0xFFF13232))),
+        title: const Text('LOGIN',
+            style: TextStyle(color: Color.fromARGB(255, 0, 0, 0))),
+        centerTitle: true,
         bottom: const PreferredSize(
           preferredSize: Size.fromHeight(40),
           child: Padding(
@@ -48,7 +48,7 @@ class LoginPage extends StatelessWidget {
             child: Text(
               'Olá, seja bem vindo de volta, insira seu login e senha.',
               textAlign: TextAlign.center,
-              style: TextStyle(color: Color(0xFFF13232)),
+              style: TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
             ),
           ),
         ),
@@ -154,9 +154,9 @@ class CadastroPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Cadastro',
-            textAlign: TextAlign.center,
-            style: TextStyle(color: Color(0xFFF13232))),
+        title:
+            const Text('CADASTRO', style: TextStyle(color: Color(0xFFF13232))),
+        centerTitle: true,
         bottom: const PreferredSize(
           preferredSize: Size.fromHeight(40),
           child: Padding(
