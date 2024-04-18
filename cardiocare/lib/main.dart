@@ -2,11 +2,16 @@
 
 import 'package:flutter/material.dart';
 import 'home.dart';
+import 'sucessoCadastro.dart';
 
 void main() => runApp(const MyApp());
 
 final TextEditingController login = TextEditingController();
 final TextEditingController senha = TextEditingController();
+final TextEditingController nome = TextEditingController();
+final TextEditingController email = TextEditingController();
+final TextEditingController telefone = TextEditingController();
+final TextEditingController senhaCadastro = TextEditingController();
 
 const usrlogin = 'valdir';
 const senhalogin = '123';
@@ -26,6 +31,7 @@ class MyApp extends StatelessWidget {
         '/': (context) => const LoginPage(),
         '/cadastro': (context) => const CadastroPage(),
         '/home': (context) => const HomePage(),
+        '/sucessoCadastro': (context) => SucessoCadastro(),
       },
     );
   }
@@ -202,9 +208,10 @@ class CadastroPage extends StatelessWidget {
                   border: Border.all(color: const Color(0xFFDF4343)),
                   borderRadius: BorderRadius.circular(5.0),
                 ),
-                child: const Padding(
+                child: Padding(
                   padding: EdgeInsets.symmetric(horizontal: 10.0),
                   child: TextField(
+                    controller: nome,
                     textAlign: TextAlign.center,
                     decoration: InputDecoration(
                       border: InputBorder.none,
@@ -224,9 +231,10 @@ class CadastroPage extends StatelessWidget {
                   border: Border.all(color: const Color(0xFFDF4343)),
                   borderRadius: BorderRadius.circular(5.0),
                 ),
-                child: const Padding(
+                child: Padding(
                   padding: EdgeInsets.symmetric(horizontal: 10.0),
                   child: TextField(
+                    controller: email,
                     textAlign: TextAlign.center,
                     decoration: InputDecoration(
                       border: InputBorder.none,
@@ -246,9 +254,11 @@ class CadastroPage extends StatelessWidget {
                   border: Border.all(color: const Color(0xFFDF4343)),
                   borderRadius: BorderRadius.circular(5.0),
                 ),
-                child: const Padding(
+                child: Padding(
                   padding: EdgeInsets.symmetric(horizontal: 10.0),
                   child: TextField(
+                    controller: telefone,
+                    keyboardType: TextInputType.phone,
                     textAlign: TextAlign.center,
                     decoration: InputDecoration(
                       border: InputBorder.none,
@@ -268,9 +278,10 @@ class CadastroPage extends StatelessWidget {
                   border: Border.all(color: const Color(0xFFDF4343)),
                   borderRadius: BorderRadius.circular(5.0),
                 ),
-                child: const Padding(
+                child: Padding(
                   padding: EdgeInsets.symmetric(horizontal: 10.0),
                   child: TextField(
+                    controller: senhaCadastro,
                     textAlign: TextAlign.center,
                     decoration: InputDecoration(
                       border: InputBorder.none,
@@ -282,7 +293,30 @@ class CadastroPage extends StatelessWidget {
               const SizedBox(height: 20.0),
               ElevatedButton(
                 onPressed: () {
-                  // Implementar a lógica de cadastro aqui
+                  if (nome.text.isNotEmpty &&
+                      email.text.isNotEmpty &&
+                      telefone.text.isNotEmpty &&
+                      senhaCadastro.text.isNotEmpty) {
+                      Navigator.pushNamed(context, '/sucessoCadastro');
+                  } else {
+                    showDialog(
+                      context: context,
+                      builder: (context) {
+                        return AlertDialog(
+                          title: const Text('Erro'),
+                          content: const Text('Preencha todos os campos.'),
+                          actions: <Widget>[
+                            TextButton(
+                              onPressed: () {
+                                Navigator.pop(context);
+                              },
+                              child: const Text('OK'),
+                            ),
+                          ],
+                        );
+                      },
+                    );
+                  }
                 },
                 style: ButtonStyle(
                   backgroundColor:
@@ -305,10 +339,8 @@ class CadastroPage extends StatelessWidget {
                 ),
                 child: const Text('Voltar'),
               ),
-              const SizedBox(height: 20.0),
+              const SizedBox(height: 15.0),
               // Logo no final da tela
-              Positioned(
-                  bottom: 0, left: 0, right: 0, child: Text('CardioCare')),
             ],
           ),
         ),
