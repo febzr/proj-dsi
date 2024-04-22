@@ -3,10 +3,12 @@
 import 'package:email_validator/email_validator.dart';
 
 verificaUsuario(nome, senha) {
-  if (nome == "valdir" && senha == "123") {
-    return true;
+  if (nome.isEmpty || senha.isEmpty) {
+    return 0;
+  } else if (nome == 'valdir' && senha == '123') {
+    return 2;
   } else {
-    return false;
+    return 1;
   }
 }
 

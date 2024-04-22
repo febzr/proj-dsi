@@ -142,15 +142,33 @@ class LoginPage extends StatelessWidget {
                 child: ElevatedButton(
                   onPressed: () {
                     
-                    if (verificaUsuario(login, senha) == true) {
+                    if (verificaUsuario(login.text, senha.text) == 2) {
                       Navigator.pushNamed(context, '/home');
-                    } else if (verificaUsuario(login, senha) == false){
+                    } else if (verificaUsuario(login.text, senha.text) == 1){
                       showDialog(
                         context: context,
                         builder: (BuildContext context) {
                           return AlertDialog(
                             title: Text('Erro'),
                             content: Text('Usuário ou senha incorretos.'),
+                            actions: [
+                              TextButton(
+                                onPressed: () {
+                                  Navigator.of(context).pop();
+                                },
+                                child: Text('OK'),
+                              ),
+                            ],
+                          );
+                        },
+                      );
+                    } else if (verificaUsuario(login.text, senha.text) == 0) {
+                      showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return AlertDialog(
+                            title: Text('Erro'),
+                            content: Text('Preencha todos os campos.'),
                             actions: [
                               TextButton(
                                 onPressed: () {
