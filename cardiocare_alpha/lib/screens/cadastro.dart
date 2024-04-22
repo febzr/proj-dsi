@@ -1,6 +1,13 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:email_validator/email_validator.dart';
+
+final TextEditingController nome = TextEditingController();
+final TextEditingController email = TextEditingController();
+final TextEditingController telefone = TextEditingController();
+final TextEditingController senha = TextEditingController();
 
 class CadastroPage extends StatelessWidget {
   const CadastroPage({super.key});
@@ -8,15 +15,20 @@ class CadastroPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color.fromARGB(31, 133, 133, 133),
 
-      appBar: AppBar(),
+      appBar: AppBar(backgroundColor: Colors.transparent),
 
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
+            children: [
+
+              SizedBox(
+                child: Image.asset('companion.png'),
+              ),
 
               SizedBox(
                 width: 400.0,
@@ -24,9 +36,10 @@ class CadastroPage extends StatelessWidget {
                   'Cadastro',
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    fontSize: 60,
+                    fontFamily: 'Inter',
+                    fontSize: 50,
                     color: Colors.black,
-                    fontWeight: FontWeight.w900,
+                    fontWeight: FontWeight.w700,
                     fontStyle: FontStyle.italic,
                   )
                 ),
@@ -38,7 +51,8 @@ class CadastroPage extends StatelessWidget {
                   'Preencha os dados solicitados\ncom atenção',
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    fontSize: 14,
+                    fontSize: 16,
+                    fontWeight: FontWeight.w600,
                     color: Color(0xFFDF4343),
                   )
                 ),
@@ -50,125 +64,204 @@ class CadastroPage extends StatelessWidget {
                 width: 300.0,
                 child: const Text(
                   'Nome',
-                  style: TextStyle(fontSize: 14, color: Color(0xFFF13232)),
+                  style: TextStyle(fontSize: 14, color: Color(0xFFF13232), fontWeight: FontWeight.w700),
                 ),
               ),
 
-              const SizedBox(height: 5.0),
+              const SizedBox(height: 3.0),
 
               Container(
                 width: 300.0,
+                height: 45.0,
                 decoration: BoxDecoration(
                   border: Border.all(color: const Color(0xFFDF4343)),
                   borderRadius: BorderRadius.circular(5.0),
+                  color: Colors.white,
                 ),
-                child: const Padding(
+                child: Padding(
                   padding: EdgeInsets.symmetric(horizontal: 10.0),
                   child: TextField(
+                    controller: nome,
                     textAlign: TextAlign.left,
                     decoration: InputDecoration(
                       border: InputBorder.none,
+                      hintText: 'Fulano de tal',
                     ),
                   ),
                 ),
               ),
 
-              const SizedBox(height: 10.0),
+              const SizedBox(height: 5.0),
 
               SizedBox(
                 width: 300.0,
                 child: const Text(
                   'Email',
-                  style: TextStyle(fontSize: 14, color: Color(0xFFF13232)),
+                  style: TextStyle(fontSize: 14, color: Color(0xFFF13232), fontWeight:FontWeight.w700),
                 ),
               ),
 
-              const SizedBox(height: 5.0),
+              const SizedBox(height: 3.0),
 
               Container(
                 width: 300.0,
+                height: 45.0,
                 decoration: BoxDecoration(
                   border: Border.all(color: const Color(0xFFDF4343)),
                   borderRadius: BorderRadius.circular(5.0),
+                  color: Colors.white,
                 ),
-                child: const Padding(
+                child: Padding(
                   padding: EdgeInsets.symmetric(horizontal: 10.0),
                   child: TextField(
+                    controller: email,
                     textAlign: TextAlign.left,
                     decoration: InputDecoration(
                       border: InputBorder.none,
+                      hintText: 'fulano@email.com',
                     ),
                   ),
                 ),
               ),
 
-              const SizedBox(height: 10.0),
+              const SizedBox(height: 5.0),
 
               SizedBox(
                 width: 300.0,
                 child: const Text(
                   'Telefone',
-                  style: TextStyle(fontSize: 14, color: Color(0xFFF13232)),
+                  style: TextStyle(fontSize: 14, color: Color(0xFFF13232), fontWeight: FontWeight.w700),
                 ),
               ),
 
-              const SizedBox(height: 5.0),
+              const SizedBox(height: 3.0),
 
               Container(
                 width: 300.0,
+                height: 45.0,
                 decoration: BoxDecoration(
                   border: Border.all(color: const Color(0xFFDF4343)),
                   borderRadius: BorderRadius.circular(5.0),
+                  color: Colors.white,
                 ),
-                child: const Padding(
+                child: Padding(
                   padding: EdgeInsets.symmetric(horizontal: 10.0),
                   child: TextField(
+                    controller: telefone,
                     textAlign: TextAlign.left,
+                    keyboardType: TextInputType.phone,
+                    inputFormatters: [
+                      FilteringTextInputFormatter.digitsOnly,
+                      LengthLimitingTextInputFormatter(11),
+                    ],
                     decoration: InputDecoration(
                       border: InputBorder.none,
+                      hintText: '(00) 00000-0000',
                     ),
                   ),
                 ),
               ),
 
-              const SizedBox(height: 10.0),
+              const SizedBox(height: 5.0),
 
               SizedBox(
                 width: 300.0,
                 child: const Text(
                   'Senha',
-                  style: TextStyle(fontSize: 14, color: Color(0xFFF13232)),
+                  style: TextStyle(fontSize: 14, color: Color(0xFFF13232), fontWeight: FontWeight.w700),
                 ),
               ),
 
-              const SizedBox(height: 5.0),
+              const SizedBox(height: 3.0),
 
               Container(
                 width: 300.0,
+                height: 45.0,
                 decoration: BoxDecoration(
                   border: Border.all(color: const Color(0xFFDF4343)),
                   borderRadius: BorderRadius.circular(5.0),
+                  color: Colors.white,
                 ),
-                child: const Padding(
+                child: Padding(
                   padding: EdgeInsets.symmetric(horizontal: 10.0),
                   child: TextField(
+                    controller: senha,
                     textAlign: TextAlign.left,
                     decoration: InputDecoration(
                       border: InputBorder.none,
+                      hintText: '*******',
                     ),
                     obscureText: true,
                   ),
                 ),
               ),
 
-              const SizedBox(height: 30.0),
+              const SizedBox(height: 20.0),
 
               SizedBox(
                 width: 180.0,
                 height: 40.0,
                 child: ElevatedButton(
                   onPressed: () {
-                    // Implementar a lógica de cadastro aqui
+
+                    if (nome.text.isEmpty || email.text.isEmpty || telefone.text.isEmpty || senha.text.isEmpty) {
+                      showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return AlertDialog(
+                            title: const Text('Erro'),
+                            content: const Text('Preencha todos os campos'),
+                            actions: <Widget>[
+                              TextButton(
+                                onPressed: () {
+                                  Navigator.of(context).pop();
+                                },
+                                child: const Text('OK'),
+                              ),
+                            ],
+                          );
+                        },
+                      );
+
+                    } else if (!EmailValidator.validate(email.text)) {
+                      showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return AlertDialog(
+                            title: const Text('Erro'),
+                            content: const Text('Email inválido'),
+                            actions: <Widget>[
+                              TextButton(
+                                onPressed: () {
+                                  Navigator.of(context).pop();
+                                },
+                                child: const Text('OK'),
+                              ),
+                            ],
+                          );
+                        },
+                      );
+
+                    } else {
+                      showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return AlertDialog(
+                            title: const Text('Sucesso'),
+                            content: const Text('Cadastro realizado com sucesso'),
+                            actions: <Widget>[
+                              TextButton(
+                                onPressed: () {
+                                  Navigator.of(context).pop();
+                                },
+                                child: const Text('OK'),
+                              ),
+                            ],
+                          );
+                        },
+                      );
+                    }
+                    
                   },
                   style: ButtonStyle(
                     backgroundColor:
@@ -190,7 +283,7 @@ class CadastroPage extends StatelessWidget {
               Container(
                 width: 350.0,
                 decoration: BoxDecoration(
-                  border: Border.all(color: Colors.white),
+                  border: Border.all(color: Colors.transparent),
                   borderRadius: BorderRadius.circular(5.0),
                 ),
                 child: SizedBox(

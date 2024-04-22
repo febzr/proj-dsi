@@ -14,6 +14,7 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color.fromARGB(31, 133, 133, 133),
       
       body: Center(
         child: Padding(
@@ -25,18 +26,25 @@ class LoginPage extends StatelessWidget {
               Spacer(),
 
               SizedBox(
+                child: Image.asset('heart_bigsize.png'),
+              ),
+
+              SizedBox(
                 width: 200.0,
                 child: Text(
                   'Login',
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    fontSize: 70,
+                    fontFamily: 'Inter',
+                    fontSize: 60,
                     color: Colors.black,
-                    fontWeight: FontWeight.w900,
+                    fontWeight: FontWeight.w700,
                     fontStyle: FontStyle.italic,
                   )
                 ),
               ),
+
+              SizedBox(width: 3.0,),
 
               SizedBox(
                 width: 400.0,
@@ -44,7 +52,8 @@ class LoginPage extends StatelessWidget {
                   'Olá, seja bem vindo\n de volta, insira seu login e senha.',
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    fontSize: 14,
+                    fontWeight: FontWeight.w600,
+                    fontSize: 16,
                     color: const Color(0xFFDF4343),
                   )
                 ),
@@ -56,17 +65,18 @@ class LoginPage extends StatelessWidget {
                 width: 300.0,
                 child: const Text(
                   'Usuário',
-                  style: TextStyle(fontSize: 14, color: Color(0xFFF13232)),
+                  style: TextStyle(fontSize: 14, color: Color(0xFFF13232), fontWeight: FontWeight.w700),
                 ),
               ),
               
-              const SizedBox(height: 10.0),
+              const SizedBox(height: 3.0),
 
               Container(
                 width: 300.0,
                 decoration: BoxDecoration(
                   border: Border.all(color: const Color(0xFFDF4343)),
-                  borderRadius: BorderRadius.circular(5.0),
+                  borderRadius: BorderRadius.circular(3.0),
+                  color: Colors.white,
                 ),
                 child: Padding(
                   padding: EdgeInsets.symmetric(horizontal: 10.0),
@@ -75,30 +85,35 @@ class LoginPage extends StatelessWidget {
                     textAlign: TextAlign.left,
                     decoration: InputDecoration(
                       border: InputBorder.none,
+                      hintText: 'fulano@email.com',
+                      fillColor: Colors.white,
                     ),
                   ),
                 ),
               ),
 
-              const SizedBox(height: 20.0),
+              const SizedBox(height: 10.0),
 
               SizedBox(
                 width: 300.0,
                 child: Text(
                   'Senha',
                   style: TextStyle(
+                    fontWeight: FontWeight.w700,
                     fontSize: 14,
                     color: const Color(0xFFDF4343),
                   ),
                 ),
               ),
 
-              const SizedBox(height: 10.0),
+              const SizedBox(height: 3.0),
+
               Container(
                 width: 300.0,
                 decoration: BoxDecoration(
                   border: Border.all(color: const Color(0xFFDF4343)),
-                  borderRadius: BorderRadius.circular(5.0),
+                  borderRadius: BorderRadius.circular(3.0),
+                  color: Colors.white,
                 ),
                 child: Padding(
                   padding: EdgeInsets.symmetric(horizontal: 10.0),
@@ -107,12 +122,15 @@ class LoginPage extends StatelessWidget {
                     textAlign: TextAlign.left,
                     decoration: InputDecoration(
                       border: InputBorder.none,
+                      hintText: '*******',
+                      fillColor: Colors.white,
                     ),
                     obscureText: true,
                   ),
                 ),
               ),
-              const SizedBox(height: 30.0),
+
+              const SizedBox(height: 20.0),
               
               SizedBox(
                 width: 180.0,
@@ -156,7 +174,7 @@ class LoginPage extends StatelessWidget {
                 ),
               ),
 
-              const SizedBox(height: 20.0),
+              const SizedBox(height: 15.0),
 
               TextButton(
                 onPressed: () {
@@ -189,7 +207,7 @@ class LoginPage extends StatelessWidget {
               Container(
                 width: 350.0,
                 decoration: BoxDecoration(
-                  border: Border.all(color: Colors.white),
+                  border: Border.all(color: Colors.transparent),
                   borderRadius: BorderRadius.circular(5.0),
                 ),
                 child: SizedBox(
