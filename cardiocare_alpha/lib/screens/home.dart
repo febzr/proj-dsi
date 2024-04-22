@@ -3,14 +3,16 @@
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+  const HomePage({Key? key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('HOME',
-            style: TextStyle(color: Color.fromARGB(255, 0, 0, 0))),
+        title: const Text(
+          'HOME',
+          style: TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
+        ),
         centerTitle: true,
         bottom: const PreferredSize(
           preferredSize: Size.fromHeight(40),
