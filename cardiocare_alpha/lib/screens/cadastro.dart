@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:email_validator/email_validator.dart';
+import 'package:cardiocare_alpha/controller/controladorLoginCadastro.dart';
 
 final TextEditingController nome = TextEditingController();
 final TextEditingController email = TextEditingController();
@@ -209,57 +209,55 @@ class CadastroPage extends StatelessWidget {
                 child: ElevatedButton(
                   onPressed: () {
 
-                    if (nome.text.isEmpty || email.text.isEmpty || telefone.text.isEmpty || senha.text.isEmpty) {
+                    if (verificaCamposEscritos(nome.text, telefone.text, email.text, senha.text) == false) {
                       showDialog(
                         context: context,
                         builder: (BuildContext context) {
                           return AlertDialog(
-                            title: const Text('Erro'),
-                            content: const Text('Preencha todos os campos'),
-                            actions: <Widget>[
+                            title: Text('Erro'),
+                            content: Text('Preencha todos os campos'),
+                            actions: [
                               TextButton(
                                 onPressed: () {
                                   Navigator.of(context).pop();
                                 },
-                                child: const Text('OK'),
+                                child: Text('OK'),
                               ),
                             ],
                           );
                         },
                       );
-
-                    } else if (!EmailValidator.validate(email.text)) {
+                    } else if (verificaEmail(email.text) == false) {
                       showDialog(
                         context: context,
                         builder: (BuildContext context) {
                           return AlertDialog(
-                            title: const Text('Erro'),
-                            content: const Text('Email inválido'),
-                            actions: <Widget>[
+                            title: Text('Erro'),
+                            content: Text('Email inválido'),
+                            actions: [
                               TextButton(
                                 onPressed: () {
                                   Navigator.of(context).pop();
                                 },
-                                child: const Text('OK'),
+                                child: Text('OK'),
                               ),
                             ],
                           );
                         },
                       );
-
-                    } else {
+                    } else if (verificaCamposEscritos(nome.text, telefone.text, email.text, senha.text) == true && verificaEmail(email.text) == true){
                       showDialog(
                         context: context,
                         builder: (BuildContext context) {
                           return AlertDialog(
-                            title: const Text('Sucesso'),
-                            content: const Text('Cadastro realizado com sucesso'),
-                            actions: <Widget>[
+                            title: Text('Sucesso'),
+                            content: Text('Cadastro realizado com sucesso'),
+                            actions: [
                               TextButton(
                                 onPressed: () {
                                   Navigator.of(context).pop();
                                 },
-                                child: const Text('OK'),
+                                child: Text('OK'),
                               ),
                             ],
                           );

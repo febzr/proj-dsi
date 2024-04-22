@@ -1,12 +1,10 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:cardiocare_alpha/controller/controladorLoginCadastro.dart';
 
 final TextEditingController login = TextEditingController();
 final TextEditingController senha = TextEditingController();
-
-const usrlogin = 'valdir';
-const senhalogin = '123';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -143,27 +141,29 @@ class LoginPage extends StatelessWidget {
                 height: 40.0,
                 child: ElevatedButton(
                   onPressed: () {
-                    if (login.text == usrlogin && senha.text == senhalogin) {
+                    
+                    if (verificaUsuario(login, senha) == true) {
                       Navigator.pushNamed(context, '/home');
-                    } else {
+                    } else if (verificaUsuario(login, senha) == false){
                       showDialog(
                         context: context,
-                        builder: (context) {
+                        builder: (BuildContext context) {
                           return AlertDialog(
-                            title: const Text('Erro'),
-                            content: const Text('Usuário ou senha inválidos.'),
-                            actions: <Widget>[
+                            title: Text('Erro'),
+                            content: Text('Usuário ou senha incorretos.'),
+                            actions: [
                               TextButton(
                                 onPressed: () {
-                                  Navigator.pop(context);
+                                  Navigator.of(context).pop();
                                 },
-                                child: const Text('OK'),
+                                child: Text('OK'),
                               ),
                             ],
                           );
                         },
                       );
                     }
+
                   },
                   style: ButtonStyle(
                     backgroundColor:
