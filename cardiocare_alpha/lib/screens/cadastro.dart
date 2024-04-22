@@ -20,14 +20,19 @@ class CadastroPage extends StatelessWidget {
       appBar: AppBar(backgroundColor: Colors.transparent),
 
       body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+        child: Container(
+          width: 350.0,
+          padding: const EdgeInsets.symmetric(horizontal: 10.0),
+          child: ListView(
+            shrinkWrap: true,
             children: [
 
               SizedBox(
-                child: Image.asset('companion.png'),
+                child: Image.asset(
+                  'companion.png',
+                  height: 80.0,
+                  width: 80.0,
+                  ),
               ),
 
               SizedBox(
@@ -278,8 +283,8 @@ class CadastroPage extends StatelessWidget {
                 ),
               ),
 
-              Spacer(),
-              // Logo no final da tela
+              SizedBox(height: 20.0),
+
               Container(
                 width: 350.0,
                 decoration: BoxDecoration(
@@ -292,7 +297,15 @@ class CadastroPage extends StatelessWidget {
               ),
 
               Positioned(
-                  bottom: 0, left: 0, right: 0, child: Image.asset('Vector.png')),
+                  bottom: 0,
+                  left: 0,
+                  right: 0, 
+                  child: Image.asset(
+                    'Vector.png',
+                    width: 50.0,
+                    height: 50.0,
+                    ),
+                  ),
 
             ],
           ),

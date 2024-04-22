@@ -17,18 +17,24 @@ class LoginPage extends StatelessWidget {
       backgroundColor: Color.fromARGB(31, 133, 133, 133),
       
       body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-
-              Spacer(),
-
+        child: Container(
+          width: 350.0,
+          padding: EdgeInsets.symmetric(horizontal: 10.0),
+          child: ListView(
+            shrinkWrap: true,
+            children: [
+          
+              SizedBox(height: 40.0,),
+          
               SizedBox(
-                child: Image.asset('heart_bigsize.png'),
+                child: Image.asset(
+                  'heart_bigsize.png',
+                  height: 80.0,
+                  width: 80.0,
+                  fit: BoxFit.contain,
+                  ),
               ),
-
+          
               SizedBox(
                 width: 200.0,
                 child: Text(
@@ -43,9 +49,9 @@ class LoginPage extends StatelessWidget {
                   )
                 ),
               ),
-
+          
               SizedBox(width: 3.0,),
-
+          
               SizedBox(
                 width: 400.0,
                 child: Text(
@@ -58,9 +64,9 @@ class LoginPage extends StatelessWidget {
                   )
                 ),
               ),
-
+          
               const SizedBox(height: 30.0),
-
+          
               SizedBox(
                 width: 300.0,
                 child: const Text(
@@ -70,7 +76,7 @@ class LoginPage extends StatelessWidget {
               ),
               
               const SizedBox(height: 3.0),
-
+          
               Container(
                 width: 300.0,
                 decoration: BoxDecoration(
@@ -91,9 +97,9 @@ class LoginPage extends StatelessWidget {
                   ),
                 ),
               ),
-
+          
               const SizedBox(height: 10.0),
-
+          
               SizedBox(
                 width: 300.0,
                 child: Text(
@@ -105,9 +111,9 @@ class LoginPage extends StatelessWidget {
                   ),
                 ),
               ),
-
+          
               const SizedBox(height: 3.0),
-
+          
               Container(
                 width: 300.0,
                 decoration: BoxDecoration(
@@ -129,7 +135,7 @@ class LoginPage extends StatelessWidget {
                   ),
                 ),
               ),
-
+          
               const SizedBox(height: 20.0),
               
               SizedBox(
@@ -173,9 +179,9 @@ class LoginPage extends StatelessWidget {
                   child: const Text('Entrar'),
                 ),
               ),
-
+          
               const SizedBox(height: 15.0),
-
+          
               TextButton(
                 onPressed: () {
                   Navigator.pushNamed(context, '/cadastro');
@@ -188,7 +194,7 @@ class LoginPage extends StatelessWidget {
                 ),
                 child: const Text('Cadastrar-se'),
               ),
-
+          
               TextButton(
                 onPressed: () {
                   // Implementar a lógica de recuperação de senha aqui
@@ -202,7 +208,7 @@ class LoginPage extends StatelessWidget {
                 child: const Text('Esqueci minha senha'),
               ),
 
-              Spacer(),
+              SizedBox(height: 20.0),
               
               Container(
                 width: 350.0,
@@ -214,10 +220,18 @@ class LoginPage extends StatelessWidget {
                   child: Image.asset('CardioCare.png'),
                 ),
               ),
-
+          
               Positioned(
-                  bottom: 0, left: 0, right: 0, child: Image.asset('Vector.png')),
-
+                  bottom: 0, 
+                  left: 0, 
+                  right: 0, 
+                  child: Image.asset(
+                    'Vector.png',
+                    height: 50.0,
+                    width: 50.0,
+                    )
+                  ),
+          
             ],
           ),
         ),
