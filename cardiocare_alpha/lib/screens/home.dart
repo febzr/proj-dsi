@@ -9,8 +9,44 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(31, 133, 133, 133),
-      ),
+          toolbarHeight: 180, // tamanho da appbar
+          flexibleSpace: Container(
+            color: const Color(0xFFCD1313),
+            child: Column(
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      width: 60,
+                      height: 100,
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: Color.fromARGB(255, 0, 0, 0),
+                      ),
+                      child: Center(
+                        child: Text(
+                          'user',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ),
+                    SizedBox(width: 10),
+                    Text(
+                      'Valdir Gomes Queiroz',
+                      style:
+                          TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+          backgroundColor: Colors.transparent),
+      backgroundColor: Color.fromARGB(31, 133, 133, 133),
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
