@@ -3,28 +3,13 @@
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({Key? key});
+  const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          'HOME',
-          style: TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
-        ),
-        centerTitle: true,
-        bottom: const PreferredSize(
-          preferredSize: Size.fromHeight(40),
-          child: Padding(
-            padding: EdgeInsets.symmetric(vertical: 8.0),
-            child: Text(
-              'Bem vindo ao sistema, Valdir!',
-              textAlign: TextAlign.center,
-              style: TextStyle(color: Color.fromARGB(255, 0, 0, 0)),
-            ),
-          ),
-        ),
+        backgroundColor: Color.fromARGB(31, 133, 133, 133),
       ),
       body: Center(
         child: Padding(
