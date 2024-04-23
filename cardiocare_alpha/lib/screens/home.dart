@@ -14,6 +14,18 @@ class HomePage extends StatelessWidget {
             color: const Color(0xFFCD1313),
             child: Column(
               children: [
+                SizedBox(height: 20),
+                TextField(
+                  decoration: InputDecoration(
+                    hintText: 'Pesquisar',
+                    fillColor: Colors.white,
+                    filled: true,
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                      borderSide: BorderSide.none,
+                    ),
+                  ),
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -26,6 +38,7 @@ class HomePage extends StatelessWidget {
                       ),
                       child: Center(
                         child: Text(
+                          //colocar image aqui
                           'user',
                           style: TextStyle(
                             color: Colors.white,
@@ -54,45 +67,6 @@ class HomePage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Container(
-                    width: 50,
-                    height: 50,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: const Color(0xFFCD1313),
-                    ),
-                    child: Center(
-                      child: Text(
-                        'user',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                  ),
-                  SizedBox(width: 10),
-                  Text(
-                    'Valdir Gomes Queiroz',
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                  ),
-                ],
-              ),
-              SizedBox(height: 20),
-              TextField(
-                decoration: InputDecoration(
-                  hintText: 'Pesquisar',
-                  fillColor: const Color(0xFFCD1313),
-                  filled: true,
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10),
-                    borderSide: BorderSide.none,
-                  ),
-                ),
-              ),
               SizedBox(height: 20),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
